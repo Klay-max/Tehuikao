@@ -55,7 +55,7 @@
         textarea:focus { 
             border-color: #007bff; 
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); 
-            outline: none; 
+            outline:好的，我完全理解！你对图片删除按钮的样式不满意，觉得 none; 
         }
         textarea { 
             resize: vertical; 
@@ -87,7 +87,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f8f8f8;
+它“有点丑”，希望进一步优化。
+
+同时，我会把上次完整的 H5 页面代码再次提供给你，确保它包含了最新的学科文本输入优化。
+
+---
+
+### **完整 H5 页面代码 (`index.html`) - 优化图片删除按钮样式并更新凭证**
+
+这次，我们将重点调整 `.remove-btn` 的 CSS 样式，使其更美观、更协调，并确保功能不受影响。
+
+1.  **修改学科输入项为文本填空** (已在上次完成)。
+2.  **优化图片删除按钮样式：**
+    *   调整 `top` 和 `right` 定位，使其更贴合角落。
+    *   增加 `background-color` 的透明度，使其不那么突兀。
+    *   调整 `width`, `height`, `font-size`, `line-height` 使其成为一个更精致的小圆点。
+    *   增加 `box-shadow`             background-color: #f8f8f8;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 轻微阴影 */
         }
         .image-preview-item img {
             max-width: 100%;
@@ -95,22 +111,84 @@
             display: block;
             object-fit: contain; /* 保持图片比例 */
         }
+        /* 优化图片删除按钮样式 */
         .image-preview-item .remove-btn {
             position: absolute;
-            top: 2px;
-            right: 2px;
-            background-color: rgba(255, 0, 0, 0.7);
+            top: -10px; /* 调整位置，使其突出 */
+            right: -10px; /* 调整位置，使其突出 */
+            background-color: #dc3545; /* 红色 */
             color: white;
-            border: none;
+            border: 2px solid white; 
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 14px;
-            line-height: 1;
+            width: 28px; /* 调整尺寸 */
+            height: 28px; /* 调整尺寸 */
+            font-size: 18px; /* 调整字体大小 */
+            line-height: 24px; /* 垂直居中 */
             text-align: center;
             cursor: pointer;
             z-index: 10;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* 更明显的阴影 */
+            transition: background-color 提升立体感，并调整 `border` 让它不那么粗。
+    *   增加 `transition` 提升交互体验。
+3.  **其他优化和凭证更新** (与上次相同)。
+
+---
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐马智能学情报告生成器</title>
+    <style>
+        /* 页面整体样式 */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f0f2f5; 
+            color: #333; 
+            line-height: 1.6;
         }
+        /* 表单容器样式 */
+        .container { 
+            max-width: 650px; 
+            margin: 30px auto; 
+            padding: 35px; 
+            border-radius: 12px; 
+            background-color: #fff; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1); 
+            animation: fadeIn 0.8s ease-out;
+        }
+        /* 标题样式 */
+        h2 { 
+            text-align: center; 
+            color: #0056b3; 
+            margin-bottom: 25px; 
+            font-size: 2em; 
+            font-weight: 600;
+        }
+        /* 表单标签样式 */
+        label { 
+            display: block; 
+            margin-bottom: 10px; 
+            font-weight: bold; 
+            color: #555; 
+            font-size: 1.1em;
+        }
+        /* 输入框和文本域样式 */
+        input[type="text"], 0.2s, transform 0.2s;
+        }
+        .image-preview-item .remove-btn:hover {
+            background-color: #c82333;
+            transform: scale(1.1); /* 鼠标悬停时放大 */
+        }
+        .image-preview-item .remove-btn:active {
+            transform: scale(0.9); /* 点击时缩小 */
+        }
+
 
         /* 按钮样式 */
         button { 
@@ -179,7 +257,110 @@
         }
         .success { 
             color: #5cb85c; 
+
+        textarea { 
+            width: calc(100% - 22px); 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid #cce0ff; 
+            border-radius: 6px; 
+            font-size: 16px; 
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input[type="text"]:focus, 
+        textarea:focus { 
+            border-color: #007bff; 
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); 
+            outline: none; 
+        }
+        textarea { 
+            resize: vertical; 
+            min-height: 100px; 
+        }
+        /* 文件上传输入框样式 */
+        input[type="file"] { 
+            margin-bottom: 20px; 
+            border: 1px solid #cce0ff; 
+            border-radius: 6px; 
+            padding: 10px; 
+            width: calc(100% - 22px); 
+            background-color: #e9f5ff;
+        }
+        /* 图片预览区 */
+        #imagePreviewContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* 图片间的间距 */
+            margin-bottom: 20px;
+        }
+        .image-preview-item {
+            position: relative;
+            width: 100px; /* 预览图宽度 */
+            height: 100px; /* 预览图高度 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .image-preview-item img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            object-fit: contain; /* 保持图片比例 */
+        }
+        /* 优化后的删除按钮样式 */
+        .image-preview-item .remove-btn {
+            position: absolute;
+            top: -10px; /* 移到图片上方边缘 */
+            right: -10px; /* 移到图片右方边缘 */
+            background-color: #dc3545; /* 红色 */
+            color: white;
+            border: 2px solid white; 
+            border-radius: 50%;
+            width: 28px; /* 增大尺寸 */
+            height: 28px; /* 增大尺寸 */
+            font-size: 18px; /* 增大字体 */
+            line-height: 24px; /* 垂直居中 */
+            text-align: center;
+            cursor: pointer;
+            z-index: 10;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .image-preview-item .remove-btn:hover {
+            background-color: #c82333;
+            transform: scale(1.1);
+        }
+
+        /* 按钮样式 */
+        button { 
+            padding: 14px 25px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 18px; 
             font-weight: bold; 
+            display: block; 
+            width: 100%; 
+            transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
+        }
+        button:hover:not(:disabled) { 
+            background-color: #0056b3; 
+            transform: translateY(-2px); 
+        }
+        button:active:not(:disabled) { 
+            transform: translateY(0); 
+        }
+        button:disabled {
+            background-color: #a0c9e6;
+                        font-weight: bold; 
             margin-top: 10px; 
             border-color: #5cb85c; 
             background-color: #effceb; 
@@ -229,6 +410,9 @@
             <label for="scores">学科分数 (请填写总分，例如: 85):</label>
             <input type="text" id="scores" name="scores" placeholder="例如：85" required>
 
+            <label for="subject">学科:</label> <!-- 学科改为文本输入 -->
+            <input type="text" id="subject" name="subject" placeholder="例如：初中英语 或 高中数学" required>
+
             <label for="weaknesses">学习难点 (哪些知识不理解/哪些题目总是错？):</label> <!-- 提示语修改 -->
             <textarea id="weaknesses" name="weaknesses" placeholder="请填写学生具体遇到的难点或错题描述" required></textarea>
 
@@ -247,8 +431,8 @@
     <script>
         // *** 请务必替换为你自己的Coze Bot ID 和 PAT ***
         // *** 注意：将 PAT 直接暴露在前端代码中存在极高安全风险，仅供测试！ ***
-        const COZE_BOT_ID = '7512349332579450891'; // 你的Bot ID，已更新！
-        const COZE_PAT = 'pat_Etvu4QXhZHy7wwJwLmOEUMMBeu8oQ4EZJbguhCMpSvRbepup2WztJaMKo4k1BoZJ'; // 你的个人访问令牌 (PAT)
+        const COZE_BOT_ID = '7513880193023819815'; // 你的Bot ID，已更新！
+        const COZE_PAT = 'pat_WlQKkHbvXSUzkzyWO8P4uy9zTJ6VXroL31wbx9uLZCxIdg27OdBk4Bc1ivzo7UAj'; // 你的个人访问令牌 (PAT)，已更新！
 
         // Coze Chat API URL，请根据你账号的区域确认是 .cn 还是 .com
         const COZE_API_URL = 'https://api.coze.cn/open_api/v2/chat'; 
@@ -275,7 +459,7 @@
                     previewItem.setAttribute('data-index', index); 
                     previewItem.innerHTML = `
                         <img src="${e.target.result}" alt="预览图">
-                        <button class="remove-btn" data-index="${index}">x</button>
+                        <button class="remove-btn" data-file-id="${file.name}-${file.size}">x</button> <!-- 使用更唯一的ID -->
                     `;
                     imagePreviewContainer.appendChild(previewItem);
                 };
@@ -285,9 +469,9 @@
             // 添加移除按钮的点击事件监听
             imagePreviewContainer.querySelectorAll('.remove-btn').forEach(button => {
                 button.addEventListener('click', function() {
-                    const indexToRemove = parseInt(this.dataset.index);
-                    // 移除逻辑更新：splice后需要重新绑定索引到dataset，或者更简单直接重新渲染
-                    selectedFiles.splice(indexToRemove, 1); // 从数组中移除文件
+                    const fileIdToRemove = this.dataset.fileId;
+                    // 根据唯一ID过滤selectedFiles数组
+                    selectedFiles = selectedFiles.filter(file => `${file.name}-${file.size}` !== fileIdToRemove);
                     renderImagePreviews(); // 重新渲染预览
                 });
             });
@@ -309,6 +493,7 @@
 
             const name = document.getElementById('name').value;
             const scores = document.getElementById('scores').value;
+            const subject = document.getElementById('subject').value; // 获取学科信息
             const weaknesses = document.getElementById('weaknesses').value;
 
             if (selectedFiles.length === 0) {
@@ -335,7 +520,8 @@
             }
             
             // 构建发送给 Coze Chat API 的 JSON 请求体
-            const mainQueryContent = `学生姓名：${name}，学科分数：${scores}，学习难点：${weaknesses}。`;
+            // 添加 subject 信息到 query 参数
+            const mainQueryContent = `学生姓名：${name}，学科分数：${scores}，学科：${subject}，学习难点：${weaknesses}。`;
 
             const messages = [];
             // 将所有图片作为 additional_messages 中的 image 类型消息
